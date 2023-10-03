@@ -1,0 +1,75 @@
+GET http://localhost:3000
+
+###
+
+GET http://localhost:3000/categories
+###
+
+GET http://localhost:3000/categories/2
+###
+
+POST http://localhost:3000/categories
+Content-Type: application/json
+
+{
+  "name": "Panico 8",
+  "description": 4
+  
+}
+
+###
+PATCH http://localhost:3000/categories/1
+Content-Type: application/json
+
+{
+  "name": "documentario updated",
+  "description": "xpto"
+}
+
+###
+
+DELETE  http://localhost:3000/categories/5
+
+###
+
+GET http://localhost:3000/videos
+
+###
+
+POST http://localhost:3000/videos
+Content-Type: application/json
+
+{
+  "title": "video test",
+  "description": "video test",
+  "category_id": 41
+}
+
+###
+
+POST http://localhost:3000/videos
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary1234
+
+------WebKitFormBoundary1234
+Content-Disposition: form-data; name="title"
+
+Gen V
+------WebKitFormBoundary1234
+Content-Disposition: form-data; name="description"
+
+Spin off de The Boys
+------WebKitFormBoundary1234
+Content-Disposition: form-data; name="category_id"
+
+1
+------WebKitFormBoundary1234
+Content-Disposition: form-data; name="file"; filename="video.mp4"
+Content-Type: video/mp4
+
+< ./video.mp4
+------WebKitFormBoundary1234--
+
+###
+
+# Utilizar apenas no browser para realizar o download do arquivo
+GET http://localhost:3000/videos/file/1696369885296.5183.mp4
